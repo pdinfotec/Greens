@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<?php
+	include "oneTime.php";
+?>
+<html>
+<head>
+	<title> TutorGrip | Tutor, Trainer, Coach, Course, Class, Student, Teach, Learn, Guide, Education. </title>
+	<meta name="description" content="Search for Tutors near you for anything that you wish to learn. Tutorgrip brought Tutors/Teachers/Trainers to candidates and vice-versa. Anyone can earn. Teach your experience.">
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Tutorgrip Education hub, Tutoring, Tutors, Coaching, Trainers, Classes, Student, Class, Tution, Private Coach" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- //for-mobile-apps -->
+	<link rel="icon" type="image/x-icon" href="./images/logo_icon.png" />
+
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/swipebox.css">
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	
+	<link href="css/calendar.css" rel="stylesheet" type="text/css" media="all" />
+
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+	
+	<script name="text/JavaScript" language="JavaScript" src="js/myscript.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+	
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-2231504775949398",
+		enable_page_level_ads: true
+	  });
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<script name="text/JavaScript" language="JavaScript" src="js/calendar.js"></script> 
+
+	<link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
+	<script src="js/js-image-slider.js" type="text/javascript"></script>
+
+<script language="javascript">
+
+	function showCourse(value){
+		//var indx = document.getElementById("catSelect").selectedIndex;
+		//var selVal = document.getElementsByTagName("option")[indx].value;
+		
+
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			xmlhttp.open("GET","courseSelect.php?q="+value,true);
+			xmlhttp.send();
+		}
+	}
+
+	function showRegTutor(value, value1){
+		alert("You have selected '" + value + "' subscription package.");
+		//var indx = document.getElementById("catSelect").selectedIndex;
+		//var selVal = document.getElementsByTagName("option")[indx].value;
+		
+
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			location.href = "regnewtutor?pack="+value+"&amt="+value1;
+			/*if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			xmlhttp.open("GET","regnewtutor?pack="+value+"&amt="+value1,true);
+			xmlhttp.send();*/
+		}
+	}
+	
+	function showRegUser(value, value1){
+		alert("You have selected '" + value + "' subscription package.");
+		//var indx = document.getElementById("catSelect").selectedIndex;
+		//var selVal = document.getElementsByTagName("option")[indx].value;
+		
+
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			location.href = "regnewuser?pack="+value+"&amt="+value1;
+			/*if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			xmlhttp.open("GET","regnewuser?pack="+value+"&amt="+value1,true);
+			xmlhttp.send();*/
+		}
+	}
+
+	function showPreparation(value){
+		//var indx = document.getElementById("catSelect").selectedIndex;
+		//var selVal = document.getElementsByTagName("option")[indx].value;
+		//alert (value);
+
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			xmlhttp.open("GET","examSelect.php?q="+value,true);
+			xmlhttp.send();
+		}
+	}
+
+	function showFeedback(value){
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			if (value == "tutor")
+				xmlhttp.open("GET","TutorFeedback.php?q="+value,true);
+			else if (value == "service")
+				xmlhttp.open("GET","ServicesFeedback.php?q="+value,true);
+			xmlhttp.send();
+		}
+	}
+	
+	function showTutorFeedback(value){
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			xmlhttp.open("GET","TutorDetailFeedback.php?q="+value,true);
+			xmlhttp.send();
+		}
+	}
+
+</script>
+<script language="javascript">
+			
+	function myuTypeFunction(value){
+		//alert (value);
+		//var indx = document.getElementById("catSelect").selectedIndex;
+		//var selVal = document.getElementsByTagName("option")[indx].value;
+		
+
+		if (value == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		} else { 
+			if (window.XMLHttpRequest) {
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					{	
+						document.getElementById("txtHint").innerHTML = this.responseText;
+						//alert("selected value = " + value);
+					}
+				}
+			};
+			//alert("value = " + value);
+			xmlhttp.open("GET","courseSelect.php?q="+value,true);
+			xmlhttp.send();
+	}
+}
+
+</script>
+<script language="javascript">
+
+function validateNewUserForm()
+{
+	//alert ("M in header");
+	if (document.newUser.fname.value == ""||
+		document.newUser.uname.value.length < 1)
+	{
+		//Alert.render('Warning!', 'Name cannot be blank.');
+		alert ("Name cannot be blank!");
+		document.newUser.fname.focus() ;
+		return false;
+	}
+	if (document.newUser.uname.value == "" ||
+		document.newUser.uname.value.length < 5)
+	{
+		//Alert.render('Warning!', 'User name cannot be blank and should be atleast 5 character long.');
+		alert ("User name cannot be blank and should be atleast 5 character long!");
+		document.newUser.uname.focus() ;
+		return false;
+	}
+	else if (document.newUser.uname.value.length > 32)
+	{
+		//Alert.render('Warning!', 'User name cannot be blank and should be atmost 32 character long.');
+		alert ("User name cannot be blank and should be atmost 32 character long!");
+		document.newUser.uname.focus() ;
+		return false;
+	}
+		
+	if (document.newUser.pass.value == "" ||
+		document.newUser.pass.value.length < 5)
+	{
+		//Alert.render('Warning!', 'Invalid Password. Password should be atleast 5 character long.');
+		alert ("Invalid Password. Password should be atleast 5 character long!");
+		document.newUser.pass.focus() ;
+		return false;
+	}
+	else if (document.newUser.pass.value.length > 32)
+	{
+		//Alert.render('Warning!', 'Password should be atmost 32 character long.');
+		alert ("User name cannot be blank and should be atmost 32 character long!");
+		document.newUser.pass.focus() ;
+		return false;
+	}
+	
+	if (document.newUser.pass.value != document.newUser.conpass.value)
+	{
+		//Alert.render('Warning!', 'Confirm password does not match with original, please enter correct password.');
+		alert ("Confirm password does not match with original, please enter correct password!");
+		document.newUser.conpass.focus() ;
+		return false;
+	}
+
+	var emailID = document.newUser.email.value;
+	var mailformat = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;  
+	
+	if(mailformat.test(emailID))  
+	{  
+		if (document.newUser.emailID.value.length > 32)
+		{
+			//Alert.render('Warning!', 'email address should be atmost 32 character length.');
+			alert("You have entered an invalid email address!");  
+			document.newUser.email.focus();  
+			return false;  
+		}
+	}  
+	else  
+	{  
+		//Alert.render('Warning!', 'You have entered an invalid email address.');
+		alert("You have entered an invalid email address!");  
+		document.newUser.email.focus();  
+		return false;  
+	}  
+
+	var phone = document.newUser.telephone.value;
+
+	if (phone)
+	{
+		var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+		if(phoneno.test(phone))  
+		{  
+			if (document.newUser.phone.value.length > 11)
+			{
+				//Alert.render('Warning!', 'phone number should be atmost 11 character length.');
+				alert("You have entered an invalid email address!");  
+				document.newUser.phone.focus();  
+				return false;  
+			}
+		}  
+		else  
+		{  
+			//Alert.render('Warning!', 'Not a valid Phone Number.');
+			alert("Not a valid Phone Number");  
+			document.newUser.telephone.focus();
+			return false;  
+		} 
+	}
+	else
+	{
+		//Alert.render('Warning!', 'Not a valid Phone Number.');
+		alert("Not a valid Phone Number");  
+		document.newUser.telephone.focus();
+		return false;
+	}
+
+	if (document.newUser.sqans.value.length < 4)
+	{
+		//Alert.render('Warning!', 'Please provide your valid secret question answer.');
+		alert ("Please provide your valid secret question answer!");
+		document.newUser.sqans.focus();
+		return false;
+	}
+
+	return( true );
+} 
+
+</script>
+</head>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.containerl {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 200px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+<body>
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="header-nav">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					    <h2 class="tittle"><a class="navbar-brand" href="index.php"><img src="./images/logo_Tutorgrip.png" alt="Tutorgrip Logo" height="65" width="170"/></a></h2>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a class="hvr-overline-from-center button2" href="index">Home</a></li>
+							<li><a class="hvr-overline-from-center button2" href="about">About</a></li>
+							<li><a class="hvr-overline-from-center button2 active" href="joinus">Join Us</a></li>
+							<li><a class="hvr-overline-from-center button2" href="credentials">Credentials</a></li>
+							<li><a class="hvr-overline-from-center button2" href="services">Services</a></li>
+							<li><a class="hvr-overline-from-center button2" href="contact">Contact</a></li>
+						</ul>
+						<div class="search-box">
+							<div id="sb-search" class="sb-search">
+								<form>
+									<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+									<input class="sb-search-submit" type="submit" value="">
+									<span class="sb-icon-search"> </span>
+								</form>
+							</div>
+						</div>
+					</div><!-- /navbar-collapse -->
+					
+					<!-- search-scripts -->
+					<script src="js/classie.js"></script>
+					<script src="js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+					<!-- //search-scripts -->
+				</nav>
+			</div>
+		</div>
+	</div>
+	
+<div class="UC">
+	<div class="container">
+	    <H1><span> TUTOR REGISTRATION FORM !!</span></H1>
+		<br />
+		<div id="id11" class="article">
+			<form action="back/new.php?amount=<?php echo $amt; ?>" method="POST" id="newTutor" name="newTutor" enctype="multipart/form-data" onsubmit="return validateNewUserForm();" > 
+				<input type="hidden" name="urtype" id="urtype" value="Tutor"></input>
+				
+				<table>
+					<tr>
+						<td width="300"><br></td>
+						<td width="400"></td>
+					</tr>
+					<tr>
+						<td> <label for="fname">Full Name</label> </td>
+						<td> <input type="text" name="fname" id="fname" size='50' maxlength="40" class="round full-width-input" autofocus /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="uname"> Preffered Username &nbsp;&nbsp;&nbsp;&nbsp;</label>  </td>
+						<td> <input type="text" name="uname" id="uname" size='50' maxlength="15" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="pass">New Password</label>  </td>
+						<td> <input type="password" name="pass" id="pass" size='50' maxlength="15" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="conpass">Confirm Password</label>  </td>
+						<td> <input type="password" name="conpass" id="conpass" size='50' maxlength="15" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="gender">Secret Gender</label>  </td>
+						<td> <select name="gender" id="gender">
+								<option value="select">Select..</option>
+								<option value="male"> Male </option>
+								<option value="female"> Female </option>
+								<option value="bisexual"> Bisexual </option>
+								<option value="disclosed"> Disclosed </option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="email">Email ID</label>  </td>
+						<td> <input type="text" name="email" id="email" size='50' maxlength="30" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="telephone">Contact Number</label>  </td>
+						<td> <input type="text" name="telephone" id="telephone" size='50' maxlength="13" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="country"> Country</label>  </td>
+						<td><select id="country" name="country"></select></td>
+					</tr>
+					<tr>
+						<td><br /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="state"> State</label>  </td>
+						<td><select name="state" id="state"></select></td>
+					</tr>
+					<tr>
+						<td><br /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="district"> City / District</label>  </td>
+						<td><select name="district" id="district"></select></td>
+					</tr>
+					<tr>
+						<td><br /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="area">Area</label>  </td>
+						<td><input type="text" name="area" id="area" /></td>
+						<td>&nbsp;&nbsp;&nbsp; (Multiple area(s) with comma(,) separated. (No special character or space between two area) ) </td>
+					</tr>
+					<tr>
+						<td><br /></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="sq">Secret Question</label>  </td>
+						<td> <select name="sq" id="sq">
+								<option value="select">Select..</option>
+								<option value="frnd">My Best Friend.</option>
+								<option value="pet">My Pet.</option>
+								<option value="school">My School.</option>
+								<option value="teacher">My Favorite Teacher.</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="sqans">Answer</label>  </td>
+						<td> <input type="text" name="sqans" id="sqans" size='50' maxlength="40" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="skdt">Skill Detail</label>  </td>
+						<td> <input type="text" name="skdt" id="skdt" size='50' maxlength="200" class="round full-width-input" /> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="bdata">Your achievements (Resume)</label>  </td>
+						<td> <textarea name="bdata" id="bdata" rows="30" cols="80" size="26000" maxlength="26000" > </textarea></td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="photo">Your attahcment (Self Image)</label>  </td>
+						<td> <input type="file" name="photo" accept=".png, .jpg"> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<label for="utype">Your yearly subscription package is "<?php echo $package; ?>"</label> <br>
+						</td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="bname">Name</label>  </td>
+						<td> <input type="text" name="bname" id="bname" size='50' maxlength="50" class="round full-width-input" > </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="acno">Account Number</label>  </td>
+						<td> <input type="text" name="acno" id="acno" size='50' maxlength="50" class="round full-width-input"> </td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td> <label for="amount">Amount</label>  </td>
+						<td> <input type="text" name="amount" id="amount" size='50' maxlength="50" class="round full-width-input" value="<?php echo $amt; ?>" disabled> <?php echo $amt; ?> </td>
+					</tr> 
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td> <label for="inst"><font size="2px"><b>Note:</b> </font></label>  </td>
+						<td>Provide valid details, to avail our services.</td>
+					<tr>
+						<td><label for="inst"><font size="2px"><b>**All fields are mandatory.</b></font></label></td>
+					</tr>
+					<tr>
+						<td><br></td>
+						<td></td>
+					</tr>
+					<tr>	
+						<td></td>
+						<td> <center><input class="btn btn-primary" type="submit" name="submit" id="submit" value="OK" />
+							<input class="btn btn-primary" onclick="history.back();" type="button" name="cancel" id="cancel" value="Cancel" /></center>
+						</td>
+					</tr>
+					<tr>
+						<td><br><br><br><br></td>
+						<td></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+			<script language="javascript">
+				populateCountries("country", "state", "district", "area");
+			</script>
+		<br/>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<?php
+	include "back/footer.php";
+?>
